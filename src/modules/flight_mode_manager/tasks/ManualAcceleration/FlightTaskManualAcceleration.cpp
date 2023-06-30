@@ -61,6 +61,7 @@ bool FlightTaskManualAcceleration::update()
 {
 	bool ret = FlightTaskManualAltitudeSmoothVel::update();
 
+	_stick_acceleration_xy.setVelocityConstraint(_position_mode_limits.horizontal_velocity_limit);
 	_stick_yaw.generateYawSetpoint(_yawspeed_setpoint, _yaw_setpoint, _sticks.getYawExpo(), _yaw, _is_yaw_good_for_control,
 				       _deltatime);
 
